@@ -1,106 +1,269 @@
 <div align="center">
 
-# 🔊 SmartBox
+# SmartBox
 
-### *Your Paytm Soundbox, now with an AI teammate.*
+### Your Paytm Soundbox, now with an AI teammate.
 
-A voice-first AI assistant for Paytm merchants. Speak in Hindi, and SmartBox **answers, automates and acts** on your business.
+**A voice-first AI teammate for Paytm merchants that understands requests, remembers business context, automates repetitive work, and executes approved actions.**
 
-![n8n](https://img.shields.io/badge/n8n-Workflows-EA4B71?style=flat-square)
-![Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?style=flat-square)
-![Sarvam](https://img.shields.io/badge/Sarvam-Voice-FF6B00?style=flat-square)
-![Cognee](https://img.shields.io/badge/Cognee-Memory-6C47FF?style=flat-square)
-
-[🎥 Demo Video](ADD_LINK) · [🌐 Live Prototype](ADD_LINK) · [📊 Slides](ADD_LINK)
+[Demo Video](ADD_LINK) · [Live Prototype](ADD_LINK) · [Presentation](ADD_LINK)
 
 </div>
 
 ---
 
-## ❗ Problem
+## Problem
 
-Merchants generate useful data every day (sales, repeat customers, preferences), but using it means opening dashboards, spreadsheets and apps they have no time to learn. Today's Soundbox only says *"payment received."*
+Merchants generate valuable business data every day, but accessing and acting on it often requires switching between dashboards, spreadsheets, and messaging tools.
 
-## ✅ Solution
-
-SmartBox turns the Soundbox into an **AI teammate**. Press, hold, speak, and get a **voice reply**.
-
-| | What it does | Example |
-|:--:|---|---|
-| 🟦 **ASK** | Answers business questions | *"Aaj ki sale kitni hui?"* |
-| 🟨 **AUTOMATE** | Turns repeated requests into scheduled workflows | *"Roz raat 9 baje sales report bhejna."* |
-| 🟥 **ACT** | Performs actions, only after merchant approval | *"Regular customers ko monthly offer bhejo."* |
-
-> 🔊 *"Aaj ki total sale ₹23,450 hai aur 126 transactions hue hain."*
+A traditional Soundbox announces payments. SmartBox turns that interaction into a conversational business assistant.
 
 ---
 
-## 🏗️ How It Works
+## Solution
+
+A merchant can simply speak:
+
+> "Aaj ki sale kitni hui?"
+
+> "Roz raat 9 baje mujhe sales report bhejna."
+
+> "Mere regular customers ko monthly offer bhejo."
+
+SmartBox understands the request and routes it to the right workflow.
+
+| Capability | Purpose | Example |
+|---|---|---|
+| **ASK** | Answer business questions | "Aaj ki sale kitni hui?" |
+| **AUTOMATE** | Create recurring workflows | "Roz raat 9 baje sales report bhejna." |
+| **ACT** | Prepare and execute approved actions | "Regular customers ko monthly offer bhejo." |
+
+---
+
+## Architecture
 
 ```mermaid
 flowchart LR
-    M["🎤 Merchant<br/>voice"] --> UI["🖥️ SmartBox UI"] --> N["⚙️ n8n<br/>Webhook"]
-    N --> S1["Sarvam<br/>Speech→Text"] --> G["🤖 Gemini<br/>Intent"]
+    M["Merchant"] --> UI["SmartBox UI"]
+    UI --> N["n8n Webhook"]
+    N --> S1["Sarvam AI<br/>Speech to Text"]
+    S1 --> G["Gemini<br/>Intent Classification"]
     G --> R{"Router"}
     R -->|ASK| A["Sales Agent"]
-    R -->|AUTOMATE| B["Schedule Flow"]
+    R -->|AUTOMATE| B["Automation"]
     R -->|ACT| C["Promotion Agent"]
-    A & B & C <--> MEM[("🧠 Cognee<br/>Memory")]
-    A & B & C --> S2["Sarvam<br/>Text→Speech"] --> OUT["🔊 Voice reply"]
+    A <--> MEM["Cognee<br/>Memory"]
+    B <--> MEM
+    C <--> MEM
+    A --> S2["Sarvam AI<br/>Text to Speech"]
+    B --> S2
+    C --> S2
+    S2 --> UI
 ```
 
-| Component | Job |
-|---|---|
-| **Sarvam AI** | Hear and speak Indian languages |
-| **Gemini** | Understand and classify the request into ASK / AUTOMATE / ACT |
-| **n8n** | Execute, schedule and connect everything |
-| **Cognee** | Remember merchant preferences and customer history |
+### n8n Workflow
 
-### ⚙️ n8n Workflow
-
-![n8n workflow](asset/n8n-workflow.png)
+![n8n Workflow](assets/n8n-workflow.png)
 
 ---
 
-## ⭐ Key Features
+## Tech Stack
 
-- 🎙️ **Voice-first, Hindi-friendly:** no dashboard needed
-- 🧠 **Remembers the business:** say *"Hindi mein message karna, discount 10% se zyada mat dena"* once, and every future offer follows it
-- ⚡ **Real automation:** requests become executable n8n workflows, not just "okay, noted"
-- 🙋 **Human-in-the-loop:** reading data is automatic; sending messages needs merchant approval
+| Technology | Role |
+|---|---|
+| **n8n** | Workflow orchestration, routing, scheduling and execution |
+| **Google Gemini** | Natural-language understanding and ASK / AUTOMATE / ACT classification |
+| **Sarvam AI** | Indian-language speech-to-text and text-to-speech |
+| **Cognee** | Long-term merchant and customer memory |
+| **HTML / CSS / JavaScript** | Voice-first merchant interface |
+| **WhatsApp / API Adapter** | Customer communication |
+| **Business Data Adapter** | Transaction and merchant data |
+
+### How the stack works
 
 ```text
-READ → automatic          ACT → prepare → merchant approves → execute → verify → remember
+Sarvam       → Hear and speak
+Gemini       → Understand and classify
+Cognee       → Remember
+n8n          → Execute and automate
+SmartBox UI  → Interact with merchant
 ```
 
 ---
 
-## 🧰 Tech Stack
+## Core Workflow
 
-`HTML/CSS/JS` frontend · `n8n` orchestration · `Google Gemini` LLM · `Sarvam AI` STT + TTS · `Cognee` memory · `WhatsApp adapter` messaging
+### ASK
+
+```text
+Voice
+  ↓
+Sarvam STT
+  ↓
+Gemini → ASK
+  ↓
+Sales Agent
+  ↓
+Business Data
+  ↓
+Sarvam TTS
+  ↓
+Voice Response
+```
+
+### AUTOMATE
+
+```text
+Voice
+  ↓
+Gemini → AUTOMATE
+  ↓
+Extract task + schedule
+  ↓
+n8n scheduled workflow
+  ↓
+Execute recurring task
+```
+
+### ACT
+
+```text
+Voice
+  ↓
+Gemini → ACT
+  ↓
+Cognee memory
+  ↓
+Customer / business context
+  ↓
+Prepare action
+  ↓
+Merchant approval
+  ↓
+Execute
+```
 
 ---
 
-## 🚀 Run It
+## Memory
+
+SmartBox uses Cognee to retain relevant business context.
+
+Example:
+
+> "Customers ko Hindi mein message karna aur discount 10% se zyada mat dena."
+
+This preference can be retrieved later when SmartBox prepares a promotion.
+
+Memory areas include:
+
+- Merchant preferences
+- Customer history
+- Business context
+- Previous interactions
+
+---
+
+## Human-in-the-Loop
+
+Read-only requests can be handled automatically.
+
+Consequential actions use merchant approval before execution.
+
+```text
+READ
+  → Automatic
+
+ACT
+  → Prepare
+  → Merchant Approval
+  → Execute
+  → Verify
+```
+
+---
+
+## Demo
+
+### ASK
+
+**"Aaj ki sale kitni hui?"**
+
+SmartBox retrieves sales information and responds through voice.
+
+### AUTOMATE
+
+**"Roz raat 9 baje mujhe sales report bhejna."**
+
+SmartBox converts the request into a scheduled n8n workflow.
+
+### ACT
+
+**"Mere regular customers ko monthly offer bhejo."**
+
+SmartBox uses memory and customer context to prepare the action and requests merchant approval before execution.
+
+---
+
+## Run Locally
 
 ```bash
 git clone https://github.com/Purvijain1234/Paytm-SmartBox.git
 cd Paytm-SmartBox
-python -m http.server 8000     # open http://localhost:8000
+python -m http.server 8000
 ```
 
-1. Import the workflow into n8n and add your **Gemini**, **Sarvam** and **Cognee** credentials.
-2. Set your n8n webhook URL in `app.js`.
-3. Press & hold the mic and speak.
+Open:
+
+```text
+http://localhost:8000
+```
+
+### n8n Setup
+
+1. Import the SmartBox workflow into n8n.
+2. Add Google Gemini, Sarvam AI and Cognee credentials.
+3. Configure the Cognee datasets.
+4. Activate the n8n webhook.
+5. Update the webhook URL in `app.js`.
 
 ---
 
+## Current Prototype
 
-## 👥 Team
+The current prototype demonstrates the complete AI workflow using simulated transaction data.
+
+```text
+Voice
+ ↓
+Understand
+ ↓
+Route
+ ↓
+Remember
+ ↓
+Execute
+ ↓
+Voice Response
+```
+
+The transaction layer is designed to be replaced with an approved Paytm/merchant data adapter for production deployment.
+
+---
+
+## Team
 
 | Name | GitHub |
 |---|---|
-| Purvi Jain | [@Purvijain1234](https://github.com/Purvijain1234) |
-| Ranjeet Singh | [@ranjeet22](https://github.com/ranjeet22) |
+| **Purvi Jain** | [@Purvijain1234](https://github.com/Purvijain1234) |
+| **Ranjeet Singh** | [@ranjeet22](https://github.com/ranjeet22) |
 
-<div align="center"><sub>Built for the Paytm AI Hackathon · Voice → Understand → Remember → Execute</sub></div>
+---
+
+<div align="center">
+
+**SmartBox — Voice → Understand → Remember → Automate → Act**
+
+Built for the Paytm AI Hackathon.
+
+</div>
