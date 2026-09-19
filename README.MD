@@ -229,28 +229,6 @@ http://localhost:8000
 
 ---
 
-## Current Prototype
-
-The current prototype demonstrates the complete AI workflow using simulated transaction data.
-
-```text
-Voice
- ↓
-Understand
- ↓
-Route
- ↓
-Remember
- ↓
-Execute
- ↓
-Voice Response
-```
-
-The transaction layer is designed to be replaced with an approved Paytm/merchant data adapter for production deployment.
-
----
-
 ## Team
 
 | Name | GitHub |
