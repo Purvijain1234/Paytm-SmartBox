@@ -1,14 +1,24 @@
 <div align="center">
 
+<img src="<img width="800" height="800" alt="Image" src="https://github.com/user-attachments/assets/eea41334-356b-4674-8905-f73c8616b035" />" alt="Paytm AI Hackathon Delhi" width="800">
+
 # SmartBox
 
 ### Your Paytm Soundbox, now with an AI teammate.
 
 **A voice-first AI teammate for Paytm merchants that understands requests, remembers business context, automates repetitive work, and executes approved actions.**
 
-[Demo Video](ADD_LINK) · [Live Prototype](ADD_LINK) · [Presentation](ADD_LINK)
+<!--  [Demo Video](ADD_LINK) · [Live Prototype](ADD_LINK) · [Presentation](ADD_LINK) -->
 
 </div>
+
+---
+
+## Paytm AI Hackathon
+
+SmartBox is built for the **Paytm AI Hackathon — Delhi**, focused on building practical AI solutions with real-world impact.
+
+The project combines **Google Gemini, n8n, Cognee, and a lightweight web interface** to create a conversational AI workflow for merchants.
 
 ---
 
@@ -36,7 +46,7 @@ SmartBox understands the request and routes it to the right workflow.
 |---|---|---|
 | **ASK** | Answer business questions | "Aaj ki sale kitni hui?" |
 | **AUTOMATE** | Create recurring workflows | "Roz raat 9 baje sales report bhejna." |
-| **ACT** | Prepare and execute approved actions | "Regular customers ko monthly offer bhejo." |
+| **ACT** | Prepare and execute approved actions | "Mere regular customers ko monthly offer bhejo." |
 
 ---
 
@@ -121,7 +131,7 @@ Gemini → AUTOMATE
       ↓
 Extract task + schedule
       ↓
-n8n scheduled workflow
+n8n Scheduled Workflow
       ↓
 Execute recurring task
       ↓
