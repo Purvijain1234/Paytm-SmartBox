@@ -95,25 +95,12 @@ python -m http.server 8000     # open http://localhost:8000
 
 ---
 
-## 🔬 Prototype Status
-
-> Transaction data is **simulated** in this MVP because a Paytm production API isn't available. In production only the data layer is swapped for an official Paytm adapter; the AI, voice, memory and workflow layers stay the same.
-
-## 🗺️ Roadmap
-
-- [x] Voice → intent → ASK / AUTOMATE / ACT routing
-- [x] Long-term memory (Cognee)
-- [x] Scheduled reports and promotions
-- [x] Approval-based customer messaging
-- [ ] **Proactive AI:** *"Sales 25% kam hain. 18 regular customers ne is week kharida nahi. Reminder campaign banaun?"*
-
----
 
 ## 👥 Team
 
 | Name | GitHub |
 |---|---|
-| ADD NAME | [@Purvijain1234](https://github.com/Purvijain1234) |
-| ADD NAME | [@ranjeet22](https://github.com/ranjeet22) |
+| Purvi Jain | [@Purvijain1234](https://github.com/Purvijain1234) |
+| Ranjeet Singh | [@ranjeet22](https://github.com/ranjeet22) |
 
 <div align="center"><sub>Built for the Paytm AI Hackathon · Voice → Understand → Remember → Execute</sub></div>
