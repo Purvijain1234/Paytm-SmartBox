@@ -137,7 +137,7 @@ Render       → Deploy and host
 
 ### n8n Workflow
 
-![n8n Workflow](assets/n8n-workflow.png)
+<img width="1106" height="464" alt="Image" src="https://github.com/user-attachments/assets/e23fbd0a-20f9-4d26-9a31-1cfe687100fa" /> 
 
 ---
 
