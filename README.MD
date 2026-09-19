@@ -1,7 +1,5 @@
 <div align="center">
 
-<img width="704" height="283" alt="Image" src="https://github.com/user-attachments/assets/043b7adf-4aa2-4a96-a6d3-1b796a585f6b" /> 
-
 # SmartBox
 
 ### Your Paytm Soundbox, now with an AI teammate.
@@ -273,7 +271,7 @@ Gemini / Cognee / Business Workflows
 
 <div align="center">
 
-**SmartBox — Voice → Understand → Remember → Automate → Act**
+**SmartBox - Voice → Understand → Remember → Automate → Act**
 
 Built for the Paytm AI Hackathon.
 
