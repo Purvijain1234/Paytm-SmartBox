@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="<img width="800" height="800" alt="Image" src="https://github.com/user-attachments/assets/eea41334-356b-4674-8905-f73c8616b035" />" alt="Paytm AI Hackathon Delhi" width="800">
+<img width="704" height="283" alt="Image" src="https://github.com/user-attachments/assets/043b7adf-4aa2-4a96-a6d3-1b796a585f6b" /> 
 
 # SmartBox
 
