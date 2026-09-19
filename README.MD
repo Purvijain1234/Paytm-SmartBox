@@ -16,7 +16,7 @@
 
 ## Paytm AI Hackathon
 
-SmartBox is built for the **Paytm AI Hackathon — Delhi**, focused on building practical AI solutions with real-world impact.
+SmartBox is built for the **Paytm AI Hackathon - Delhi**, focused on building practical AI solutions with real-world impact.
 
 The project combines **Google Gemini, n8n, Cognee, and a lightweight web interface** to create a conversational AI workflow for merchants.
 
