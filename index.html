@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartBox | Paytm Merchant AI Teammate</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="smartbox-app">
+
+    <header class="hero">
+      <div class="meet">Meet</div>
+      <img class="paytm-logo" src="asset/paytm_logo.png" alt="Paytm" />
+      <div class="soundbox-word">SoundBox</div>
+      <h1>SmartBox</h1>
+    </header>
+
+    <section class="device-section" aria-label="Paytm SoundBox">
+      <img class="soundbox-image" src="asset/soundbox.png" alt="Paytm SoundBox" />
+    </section>
+
+    <!-- Status indicators. Only one is active at a time. -->
+    <section class="status-controls">
+      <button id="waitIndicator" class="status-card wait" type="button" aria-label="SmartBox is responding">
+        <span class="status-light red"></span>
+        <span>WAIT</span>
+      </button>
+
+      <button id="speakIndicator" class="status-card speak" type="button" aria-label="Speak to SmartBox">
+        <span class="status-light green"></span>
+        <span>SPEAK</span>
+      </button>
+    </section>
+
+    <!-- Conversation area -->
+    <section id="conversation" class="conversation" aria-live="polite">
+      <!-- Messages are inserted by app.js -->
+    </section>
+
+    <section class="input-area">
+      <div id="liveStatus" class="live-status">Ready</div>
+      <input
+        id="textInput"
+        type="text"
+        autocomplete="off"
+        placeholder="Type a command for testing…"
+        aria-label="Type a command"
+      />
+      <button id="sendText" class="send-button" type="button">Send</button>
+    </section>
+
+    <p class="hint">Hold <strong>SPEAK</strong> to talk. Release to send.</p>
+  </main>
+
+  <audio id="responseAudio" preload="auto"></audio>
+
+  <script src="app.js"></script>
+</body>
+</html>
